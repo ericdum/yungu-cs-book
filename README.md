@@ -74,6 +74,8 @@
 
 由于本讲义原版采用Latex编写，编辑和合并有一定的技术门槛，当前暂未开放直接提交内容的通道。如有改进建议、勘误或想法，欢迎大家先在 GitHub Issues 区留言：[https://github.com/ericdum/yungu-cs-book/issues](https://github.com/ericdum/yungu-cs-book/issues)。我们会定期查看和整理社区反馈。
 
+你也可以直接修改 Markdown 文件，并通过 Pull Request 的方式提交，并说明你的修改理由。我会进行审核，并合并合适的更改。
+
 **贡献内容的署名与版权归属说明**：
 
 - 目前本项目的出版权和全部版权均归作者所有。
