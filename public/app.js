@@ -9,7 +9,8 @@ createApp({
             currentTitle: '关于这本书',
             renderedContent: '<p>加载中...</p>',
             expandedChapters: [],
-            sidebarCollapsed: false,
+            // 在移动端默认折叠侧边栏
+            sidebarCollapsed: window.innerWidth <= 768,
             fontSize: parseInt(localStorage.getItem('fontSize') || '14') // 默认14px
         };
     },
@@ -17,11 +18,28 @@ createApp({
         // 初始化字体大小
         this.updateFontSize();
         
+        // 监听窗口大小变化，在移动端和桌面端之间切换时调整侧边栏状态
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                // 切换到移动端，如果侧边栏展开则折叠
+                if (!this.sidebarCollapsed) {
+                    this.sidebarCollapsed = true;
+                }
+            }
+        });
+        
         // 加载导航数据
         await this.loadNavigation();
         
-        // 处理路由
+        // 处理路由（路由处理会设置正确的标题）
         this.handleRouting();
+        
+        // 如果路由处理没有设置标题（比如是根路径），才使用默认标题
+        // 注意：handleRouting 是同步的，但 loadSection 是异步的，所以需要延迟检查
+        this.$nextTick(() => {
+            // 如果标题还是默认值且当前路径不是根路径，说明路由处理可能有问题
+            // 但这里不重置，因为 loadSection 会异步设置标题
+        });
         
         // 监听浏览器前进后退
         window.addEventListener('popstate', () => {
@@ -54,6 +72,19 @@ createApp({
         }
     },
     methods: {
+        /**
+         * 更新页面标题（浏览器标签页标题）
+         * 格式：section name - site name
+         */
+        updatePageTitle(sectionTitle) {
+            const siteName = 'AI时代·计算机通识';
+            if (sectionTitle) {
+                document.title = `${sectionTitle} - ${siteName}`;
+            } else {
+                document.title = siteName;
+            }
+        },
+        
         async loadNavigation() {
             try {
                 // 先尝试从 data 目录加载，如果失败则从根目录加载（向后兼容）
@@ -107,6 +138,11 @@ createApp({
         },
         
         async loadSection(path, title, updateUrl = true) {
+            // 在移动端，加载内容后自动关闭侧边栏
+            if (window.innerWidth <= 768 && !this.sidebarCollapsed) {
+                this.sidebarCollapsed = true;
+            }
+            
             // 保存原始 path，用于查找 section 和构建文件路径
             const originalPath = path;
             
@@ -126,10 +162,12 @@ createApp({
                                    !this.renderedContent.includes('loading') &&
                                    this.currentPath === originalPath;
             
-            if (!isSamePage) {
-                this.currentTitle = title;
-                this.currentPath = originalPath; // 使用原始 path 用于导航栏高亮
-            }
+            // 总是设置 currentPath 和 currentTitle，确保导航栏 active 状态正确
+            // 这对于页面刷新时特别重要
+            // 注意：必须在任何可能提前返回的代码之前设置这些值
+            this.currentPath = originalPath; // 使用原始 path 用于导航栏高亮
+            this.currentTitle = title;
+            this.updatePageTitle(title);
             
             // 更新 URL（不刷新页面），如果 updateUrl 为 false 则不更新
             if (updateUrl) {
@@ -261,7 +299,13 @@ createApp({
                     // 预处理：将 [\square] 转换为标准的 task list 格式
                     markdown = this.convertCheckboxMarkers(markdown);
                     
-                    let html = marked.parse(markdown);
+                    // 在 Markdown 解析前保护数学公式，避免被 Marked 解析器破坏（特别是下划线被解析为斜体）
+                    const { markdown: protectedMarkdown, mathPlaceholders } = this.protectMathFormulas(markdown);
+                    
+                    let html = marked.parse(protectedMarkdown);
+                    
+                    // 恢复数学公式占位符并转换为 HTML 标签
+                    html = this.restoreMathFormulas(html, mathPlaceholders);
                     
                     // 移除自动生成的链接（链接文本和 href 相同的链接）
                     html = this.removeAutoLinks(html);
@@ -269,7 +313,7 @@ createApp({
                     // 移除 h1 标签（因为已经有 pageTitle 了）
                     html = this.removeH1Tags(html);
                     
-                    // 处理数学公式
+                    // 处理可能残留的数学公式（作为后备方案）
                     html = this.processMath(html);
                     
                     this.renderedContent = html;
@@ -354,15 +398,108 @@ createApp({
             return tempDiv.innerHTML;
         },
         
-        processMath(html) {
-            // 处理行内公式 $...$
-            html = html.replace(/\$([^$]+)\$/g, (match, formula) => {
-                return `<span class="math-inline">${formula}</span>`;
+        /**
+         * 在 Markdown 解析前保护数学公式
+         * 将 $...$ 和 $$...$$ 替换为占位符，避免被 Marked 解析器破坏
+         */
+        protectMathFormulas(markdown) {
+            const mathPlaceholders = [];
+            let placeholderIndex = 0;
+            
+            // 处理块级公式 $$...$$（必须先处理，因为包含行内公式）
+            // 使用非贪婪匹配，并支持换行
+            markdown = markdown.replace(/\$\$([\s\S]*?)\$\$/g, (match, formula) => {
+                // 使用特殊标记作为占位符，避免被 Marked 转义
+                const placeholder = `[MATH_BLOCK_${placeholderIndex}]`;
+                mathPlaceholders.push({ type: 'block', formula: formula.trim() });
+                placeholderIndex++;
+                return placeholder;
             });
             
-            // 处理块级公式 $$...$$
-            html = html.replace(/\$\$([^$]+)\$\$/g, (match, formula) => {
-                return `<div class="math-block">${formula}</div>`;
+            // 处理行内公式 $...$
+            // 使用非贪婪匹配，但不匹配换行符（行内公式不应该包含换行）
+            markdown = markdown.replace(/\$([^$\n]+?)\$/g, (match, formula) => {
+                // 跳过已经被保护的块级公式占位符
+                if (match.includes('MATH_BLOCK_')) {
+                    return match;
+                }
+                // 使用特殊标记作为占位符，避免被 Marked 转义
+                const placeholder = `[MATH_INLINE_${placeholderIndex}]`;
+                mathPlaceholders.push({ type: 'inline', formula: formula.trim() });
+                placeholderIndex++;
+                return placeholder;
+            });
+            
+            return { markdown, mathPlaceholders };
+        },
+        
+        /**
+         * 恢复数学公式占位符并转换为 HTML 标签
+         */
+        restoreMathFormulas(html, mathPlaceholders) {
+            // 按索引从大到小处理，避免索引冲突
+            for (let index = mathPlaceholders.length - 1; index >= 0; index--) {
+                const item = mathPlaceholders[index];
+                if (item.type === 'block') {
+                    // 尝试多种可能的占位符格式（Marked 可能会转义或修改）
+                    const placeholders = [
+                        `[MATH_BLOCK_${index}]`,
+                        `<!--MATH_BLOCK_${index}-->`,
+                        `&lt;!--MATH_BLOCK_${index}--&gt;`,
+                        `__MATH_BLOCK_${index}__`
+                    ];
+                    const replacement = `<div class="math-block">${item.formula}</div>`;
+                    placeholders.forEach(placeholder => {
+                        html = html.split(placeholder).join(replacement);
+                    });
+                } else {
+                    // 尝试多种可能的占位符格式
+                    const placeholders = [
+                        `[MATH_INLINE_${index}]`,
+                        `<!--MATH_INLINE_${index}-->`,
+                        `&lt;!--MATH_INLINE_${index}--&gt;`,
+                        `__MATH_INLINE_${index}__`
+                    ];
+                    const replacement = `<span class="math-inline">${item.formula}</span>`;
+                    placeholders.forEach(placeholder => {
+                        html = html.split(placeholder).join(replacement);
+                    });
+                }
+            }
+            return html;
+        },
+        
+        processMath(html) {
+            // 处理可能残留的行内公式 $...$（作为后备方案）
+            // 只处理不在 HTML 标签中的公式
+            html = html.replace(/\$([^$<>\n]+?)\$/g, (match, formula) => {
+                // 检查是否已经在 HTML 标签中（通过检查前后是否有标签）
+                const matchIndex = html.indexOf(match);
+                const beforeMatch = html.substring(Math.max(0, matchIndex - 50), matchIndex);
+                const afterMatch = html.substring(matchIndex + match.length, Math.min(html.length, matchIndex + match.length + 50));
+                
+                // 如果前后有 math-inline 或 math-block 标签，说明已经被处理过了
+                if (beforeMatch.includes('math-inline') || beforeMatch.includes('math-block') ||
+                    afterMatch.includes('math-inline') || afterMatch.includes('math-block')) {
+                    return match;
+                }
+                
+                return `<span class="math-inline">${formula.trim()}</span>`;
+            });
+            
+            // 处理可能残留的块级公式 $$...$$（作为后备方案）
+            html = html.replace(/\$\$([\s\S]*?)\$\$/g, (match, formula) => {
+                // 检查是否已经在 HTML 标签中
+                const matchIndex = html.indexOf(match);
+                const beforeMatch = html.substring(Math.max(0, matchIndex - 50), matchIndex);
+                const afterMatch = html.substring(matchIndex + match.length, Math.min(html.length, matchIndex + match.length + 50));
+                
+                if (beforeMatch.includes('math-inline') || beforeMatch.includes('math-block') ||
+                    afterMatch.includes('math-inline') || afterMatch.includes('math-block')) {
+                    return match;
+                }
+                
+                return `<div class="math-block">${formula.trim()}</div>`;
             });
             
             return html;
@@ -370,19 +507,57 @@ createApp({
         
         renderMath() {
             // 使用 KaTeX 渲染数学公式
+            const contentBody = document.getElementById('contentBody');
+            if (!contentBody) return;
+            
+            // 首先使用 renderMathInElement 处理残留的 $...$ 格式公式
             if (typeof renderMathInElement !== 'undefined') {
-                const contentBody = document.getElementById('contentBody');
-                if (contentBody) {
-                    renderMathInElement(contentBody, {
-                        delimiters: [
-                            {left: '$$', right: '$$', display: true},
-                            {left: '$', right: '$', display: false},
-                            {left: '\\[', right: '\\]', display: true},
-                            {left: '\\(', right: '\\)', display: false}
-                        ],
-                        throwOnError: false
-                    });
-                }
+                renderMathInElement(contentBody, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+            
+            // 手动渲染 .math-inline 和 .math-block 标签中的公式
+            if (typeof katex !== 'undefined') {
+                // 处理行内公式
+                const inlineElements = contentBody.querySelectorAll('.math-inline');
+                inlineElements.forEach(element => {
+                    try {
+                        const formula = element.textContent.trim();
+                        if (formula && !element.querySelector('.katex')) {
+                            // 如果还没有被渲染，则渲染
+                            katex.render(formula, element, {
+                                throwOnError: false,
+                                displayMode: false
+                            });
+                        }
+                    } catch (e) {
+                        console.warn('KaTeX 渲染错误:', e, element.textContent);
+                    }
+                });
+                
+                // 处理块级公式
+                const blockElements = contentBody.querySelectorAll('.math-block');
+                blockElements.forEach(element => {
+                    try {
+                        const formula = element.textContent.trim();
+                        if (formula && !element.querySelector('.katex')) {
+                            // 如果还没有被渲染，则渲染
+                            katex.render(formula, element, {
+                                throwOnError: false,
+                                displayMode: true
+                            });
+                        }
+                    } catch (e) {
+                        console.warn('KaTeX 渲染错误:', e, element.textContent);
+                    }
+                });
             }
         },
         
@@ -405,12 +580,22 @@ createApp({
         handleRouting() {
             // 如果导航数据还没加载完成，等待加载完成后再处理路由
             if (!this.navigation || this.navigation.length === 0) {
-                // 延迟重试
-                setTimeout(() => {
-                    this.handleRouting();
-                }, 100);
+                // 延迟重试（最多重试10次，避免无限循环）
+                if (!this._routingRetryCount) {
+                    this._routingRetryCount = 0;
+                }
+                if (this._routingRetryCount < 10) {
+                    this._routingRetryCount++;
+                    setTimeout(() => {
+                        this.handleRouting();
+                    }, 100);
+                } else {
+                    console.error('路由处理失败：导航数据加载超时');
+                    this._routingRetryCount = 0;
+                }
                 return;
             }
+            this._routingRetryCount = 0; // 重置重试计数
             
             // 从 URL pathname 获取路径
             const path = this.getCurrentPath();
@@ -418,9 +603,15 @@ createApp({
             if (path) {
                 // 在导航中找到对应的 section 或 page
                 let found = false;
-                for (const item of this.navigation) {
+                for (let i = 0; i < this.navigation.length; i++) {
+                    const item = this.navigation[i];
                     // 检查是否是 page 类型
                     if (item.type === 'page' && item.path === path) {
+                        // 立即设置 currentPath，确保导航栏 active 状态正确
+                        this.currentPath = path;
+                        this.currentTitle = item.title;
+                        this.updatePageTitle(item.title);
+                        // 确保包含该 section 的章节展开（对于 page 类型，不需要展开章节）
                         this.loadSection(path, item.title);
                         found = true;
                         return;
@@ -429,7 +620,16 @@ createApp({
                     if (item.type === 'chapter' && item.sections) {
                         for (const section of item.sections) {
                             if (section.path === path) {
-                                this.loadSection(path, section.title);
+                                // 立即设置 currentPath，确保导航栏 active 状态正确
+                                this.currentPath = path;
+                                this.currentTitle = section.title;
+                                this.updatePageTitle(section.title);
+                                // 确保包含该 section 的章节展开
+                                if (!this.expandedChapters.includes(i)) {
+                                    this.expandedChapters.push(i);
+                                }
+                                // 调用 loadSection，传入 updateUrl=true 以确保 URL 正确
+                                this.loadSection(path, section.title, true);
                                 found = true;
                                 return;
                             }
@@ -438,27 +638,50 @@ createApp({
                 }
                 // 如果找不到对应的 section，显示错误信息
                 if (!found) {
+                    console.warn('未找到路径:', path);
+                    console.warn('可用的路径:', this.navigation.map(item => {
+                        if (item.type === 'page') return item.path;
+                        if (item.type === 'chapter' && item.sections) {
+                            return item.sections.map(s => s.path);
+                        }
+                        return null;
+                    }).flat().filter(Boolean));
                     this.currentTitle = '页面未找到';
+                    this.updatePageTitle('页面未找到');
                     this.renderedContent = `<p style="color: red;">未找到路径: ${path}</p><p>请检查 URL 是否正确。</p>`;
                 }
             } else {
                 // 根路径：加载"关于这本书"的内容，但不更新 URL
                 for (const item of this.navigation) {
                     if (item.type === 'page' && item.path === 'about-this-book') {
+                        // 立即设置 currentPath，确保导航栏 active 状态正确
+                        this.currentPath = item.path;
+                        this.currentTitle = item.title;
+                        this.updatePageTitle(item.title);
                         this.loadSection(item.path, item.title, false);
                         return;
                     }
                 }
                 // 如果没有找到"关于这本书"，则加载第一个 chapter 的第一个 section
-                for (const item of this.navigation) {
+                for (let i = 0; i < this.navigation.length; i++) {
+                    const item = this.navigation[i];
                     if (item.type === 'chapter' && item.sections && item.sections.length > 0) {
                         const firstSection = item.sections[0];
+                        // 立即设置 currentPath，确保导航栏 active 状态正确
+                        this.currentPath = firstSection.path;
+                        this.currentTitle = firstSection.title;
+                        this.updatePageTitle(firstSection.title);
+                        // 确保章节展开
+                        if (!this.expandedChapters.includes(i)) {
+                            this.expandedChapters.push(i);
+                        }
                         this.loadSection(firstSection.path, firstSection.title, false);
                         return;
                     }
                 }
                 // 如果都没有，则显示空内容
                 this.currentTitle = '';
+                this.updatePageTitle('');
                 this.currentContent = '';
             }
         },

@@ -6,16 +6,14 @@
     <title>AI时代·计算机通识</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Vue 3 -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="libs/vue.global.js"></script>
     <!-- Marked for Markdown rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="libs/marked.min.js"></script>
     <!-- KaTeX for math rendering -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="libs/katex/katex.min.css">
+    <script defer src="libs/katex/katex.min.js"></script>
+    <script defer src="libs/katex/auto-render.min.js"></script>
     <!-- 百度统计 -->
     <script>
     var _hmt = _hmt || [];
@@ -108,10 +106,17 @@
                 </div>
                 <div class="content-body" id="contentBody" v-html="renderedContent">
                 </div>
+                <div class="continue-reading" v-if="nextSection">
+                    <button class="continue-btn" @click="goToNextSection">
+                        <span class="continue-text">继续阅读</span>
+                        <span class="continue-arrow">→</span>
+                    </button>
+                    <div class="next-section-title">{{ nextSection.title }}</div>
+                </div>
             </main>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>
