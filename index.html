@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云谷高中计算机讲义</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Marked for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <!-- 左侧导航栏 -->
+            <aside class="sidebar" :class="{ 'collapsed': sidebarCollapsed }">
+                <div class="sidebar-header">
+                    <h1>云谷高中计算机讲义</h1>
+                    <button class="toggle-sidebar" @click="toggleSidebar">
+                        {{ sidebarCollapsed ? '▶' : '◀' }}
+                    </button>
+                </div>
+                <nav class="nav-menu">
+                    <div v-for="(item, itemIndex) in navigation" :key="itemIndex" class="nav-item">
+                        <!-- 如果是页面类型（如"关于这本书"） -->
+                        <div v-if="item.type === 'page'" 
+                             class="nav-section nav-page"
+                             :class="{ 'active': currentPath === item.path }"
+                             @click="loadSection(item.path, item.title)">
+                            {{ item.title }}
+                        </div>
+                        
+                        <!-- 如果是章节类型 -->
+                        <template v-else-if="item.type === 'chapter'">
+                            <!-- Part 标题 -->
+                            <div v-if="item.part && (!itemIndex || navigation[itemIndex - 1].part !== item.part)" 
+                                 class="nav-part">
+                                {{ item.part }}
+                            </div>
+                            
+                            <!-- 章节标题 -->
+                            <div class="nav-chapter" 
+                                 :class="{ 'active': expandedChapters.includes(itemIndex) }"
+                                 @click="toggleChapter(itemIndex)">
+                                {{ item.title }}
+                                <span class="expand-icon">{{ expandedChapters.includes(itemIndex) ? '▼' : '▶' }}</span>
+                            </div>
+                            
+                            <!-- Section 列表 -->
+                            <div v-show="expandedChapters.includes(itemIndex)" class="nav-sections">
+                                <div v-if="item.sections && item.sections.length > 0">
+                                    <div v-for="(section, sectionIndex) in item.sections" 
+                                         :key="sectionIndex"
+                                         class="nav-section"
+                                         :class="{ 'active': currentPath === section.path }"
+                                         @click="loadSection(section.path, section.title)">
+                                        {{ section.title }}
+                                    </div>
+                                </div>
+                                <div v-else class="nav-section" style="color: #999; font-style: italic;">
+                                    暂无内容
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- 右侧内容区域 -->
+            <main class="content">
+                <div class="content-header">
+                    <div class="header-top">
+                        <h2 id="pageTitle">{{ currentTitle || '欢迎' }}</h2>
+                        <div class="font-size-controls">
+                            <button class="font-size-btn" @click="decreaseFontSize" title="减小字体">A−</button>
+                            <span class="font-size-display">{{ fontSize }}px</span>
+                            <button class="font-size-btn" @click="increaseFontSize" title="增大字体">A+</button>
+                            <button class="font-size-reset" @click="resetFontSize" title="重置字体大小">重置</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-body" id="contentBody" v-html="renderedContent">
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+[
+  {
+    "type": "page",
+    "title": "关于这本书",
+    "path": "关于这本书.md"
+  },
+  {
+    "type": "chapter",
+    "title": "前言",
+    "part": null,
+    "sections": [
+      {
+        "title": "这本书适合哪些人",
+        "filename": "这本书适合哪些人.md",
+        "path": "前言/这本书适合哪些人.md"
+      },
+      {
+        "title": "这本书的作者",
+        "filename": "这本书的作者.md",
+        "path": "前言/这本书的作者.md"
+      },
+      {
+        "title": "这本书能帮你做什么",
+        "filename": "这本书能帮你做什么.md",
+        "path": "前言/这本书能帮你做什么.md"
+      },
+      {
+        "title": "如何阅读这本书",
+        "filename": "如何阅读这本书.md",
+        "path": "前言/如何阅读这本书.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "从移动设备到个人电脑",
+    "part": "准备自己的第一台电脑",
+    "sections": [
+      {
+        "title": "为什么要使用个人电脑",
+        "filename": "为什么要使用个人电脑.md",
+        "path": "从移动设备到个人电脑/为什么要使用个人电脑.md"
+      },
+      {
+        "title": "操作系统选择",
+        "filename": "操作系统选择.md",
+        "path": "从移动设备到个人电脑/操作系统选择.md"
+      },
+      {
+        "title": "管理好文件",
+        "filename": "管理好文件.md",
+        "path": "从移动设备到个人电脑/管理好文件.md"
+      },
+      {
+        "title": "安装应用程序",
+        "filename": "安装应用程序.md",
+        "path": "从移动设备到个人电脑/安装应用程序.md"
+      },
+      {
+        "title": "云盘",
+        "filename": "云盘.md",
+        "path": "从移动设备到个人电脑/云盘.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "电脑配置的选择",
+    "part": "准备自己的第一台电脑",
+    "sections": [
+      {
+        "title": "走进电脑硬件的世界",
+        "filename": "走进电脑硬件的世界.md",
+        "path": "电脑配置的选择/走进电脑硬件的世界.md"
+      },
+      {
+        "title": "处理器CPU：电脑的大脑中枢",
+        "filename": "处理器CPU：电脑的大脑中枢.md",
+        "path": "电脑配置的选择/处理器CPU：电脑的大脑中枢.md"
+      },
+      {
+        "title": "内存RAM：系统的高效助手",
+        "filename": "内存RAM：系统的高效助手.md",
+        "path": "电脑配置的选择/内存RAM：系统的高效助手.md"
+      },
+      {
+        "title": "存储设备：从机械时代到固态未来",
+        "filename": "存储设备：从机械时代到固态未来.md",
+        "path": "电脑配置的选择/存储设备：从机械时代到固态未来.md"
+      },
+      {
+        "title": "显卡GPU：视觉世界的魔法师",
+        "filename": "显卡GPU：视觉世界的魔法师.md",
+        "path": "电脑配置的选择/显卡GPU：视觉世界的魔法师.md"
+      },
+      {
+        "title": "现代融合硬件：一体化设计的未来",
+        "filename": "现代融合硬件：一体化设计的未来.md",
+        "path": "电脑配置的选择/现代融合硬件：一体化设计的未来.md"
+      },
+      {
+        "title": "硬件配置选择指南：为你的需求定制完美方案",
+        "filename": "硬件配置选择指南：为你的需求定制完美方案.md",
+        "path": "电脑配置的选择/硬件配置选择指南：为你的需求定制完美方案.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "必备技巧",
+    "part": "准备自己的第一台电脑",
+    "sections": [
+      {
+        "title": "键盘",
+        "filename": "键盘.md",
+        "path": "必备技巧/键盘.md"
+      },
+      {
+        "title": "常用快捷键",
+        "filename": "常用快捷键.md",
+        "path": "必备技巧/常用快捷键.md"
+      },
+      {
+        "title": "鼠标和触摸板",
+        "filename": "鼠标和触摸板.md",
+        "path": "必备技巧/鼠标和触摸板.md"
+      },
+      {
+        "title": "关机、休眠和睡眠",
+        "filename": "关机、休眠和睡眠.md",
+        "path": "必备技巧/关机、休眠和睡眠.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "必备系统设置",
+    "part": "准备自己的第一台电脑",
+    "sections": [
+      {
+        "title": "系统语言和区域设置",
+        "filename": "系统语言和区域设置.md",
+        "path": "必备系统设置/系统语言和区域设置.md"
+      },
+      {
+        "title": "显示设置和分辨率调整",
+        "filename": "显示设置和分辨率调整.md",
+        "path": "必备系统设置/显示设置和分辨率调整.md"
+      },
+      {
+        "title": "用户账户和权限管理",
+        "filename": "用户账户和权限管理.md",
+        "path": "必备系统设置/用户账户和权限管理.md"
+      },
+      {
+        "title": "系统安全基础",
+        "filename": "系统安全基础.md",
+        "path": "必备系统设置/系统安全基础.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "使用电脑上网",
+    "part": "准备自己的第一台电脑",
+    "sections": [
+      {
+        "title": "互联网",
+        "filename": "互联网.md",
+        "path": "使用电脑上网/互联网.md"
+      },
+      {
+        "title": "局域网",
+        "filename": "局域网.md",
+        "path": "使用电脑上网/局域网.md"
+      },
+      {
+        "title": "VPN 和网络代理",
+        "filename": "VPN_和网络代理.md",
+        "path": "使用电脑上网/VPN_和网络代理.md"
+      },
+      {
+        "title": "安全的网站",
+        "filename": "安全的网站.md",
+        "path": "使用电脑上网/安全的网站.md"
+      },
+      {
+        "title": "安全的密码",
+        "filename": "安全的密码.md",
+        "path": "使用电脑上网/安全的密码.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "必备AI工具",
+    "part": "人工智能助手",
+    "sections": [
+      {
+        "title": "引言",
+        "filename": "引言.md",
+        "path": "必备AI工具/引言.md"
+      },
+      {
+        "title": "人工智能的前世今生",
+        "filename": "人工智能的前世今生.md",
+        "path": "必备AI工具/人工智能的前世今生.md"
+      },
+      {
+        "title": "通过网页使用的AI（未完成，待补充）",
+        "filename": "通过网页使用的AI（未完成，待补充）.md",
+        "path": "必备AI工具/通过网页使用的AI（未完成，待补充）.md"
+      },
+      {
+        "title": "使用操作系统提供的AI（未完成，待补充",
+        "filename": "使用操作系统提供的AI（未完成，待补充.md",
+        "path": "必备AI工具/使用操作系统提供的AI（未完成，待补充.md"
+      },
+      {
+        "title": "使用AI浏览器和其他专用AI工具（未完成，待补充）",
+        "filename": "使用AI浏览器和其他专用AI工具（未完成，待补充）.md",
+        "path": "必备AI工具/使用AI浏览器和其他专用AI工具（未完成，待补充）.md"
+      },
+      {
+        "title": "让AI控制一切（未完成，待补充）",
+        "filename": "让AI控制一切（未完成，待补充）.md",
+        "path": "必备AI工具/让AI控制一切（未完成，待补充）.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "大语言模型和提示词",
+    "part": "人工智能助手",
+    "sections": [
+      {
+        "title": "大模型原理：揭开AI的神秘面纱",
+        "filename": "大模型原理：揭开AI的神秘面纱.md",
+        "path": "大语言模型和提示词/大模型原理：揭开AI的神秘面纱.md"
+      },
+      {
+        "title": "提示词的关键技术：从原理到实践",
+        "filename": "提示词的关键技术：从原理到实践.md",
+        "path": "大语言模型和提示词/提示词的关键技术：从原理到实践.md"
+      },
+      {
+        "title": "上下文管理：理解AI的记忆边界",
+        "filename": "上下文管理：理解AI的记忆边界.md",
+        "path": "大语言模型和提示词/上下文管理：理解AI的记忆边界.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "合理使用提示词",
+    "part": "人工智能助手",
+    "sections": [
+      {
+        "title": "提示词技巧",
+        "filename": "提示词技巧.md",
+        "path": "合理使用提示词/提示词技巧.md"
+      },
+      {
+        "title": "MCP",
+        "filename": "MCP.md",
+        "path": "合理使用提示词/MCP.md"
+      },
+      {
+        "title": "Agent",
+        "filename": "Agent.md",
+        "path": "合理使用提示词/Agent.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "图像生成",
+    "part": "人工智能助手",
+    "sections": [
+      {
+        "title": "图像生成原理",
+        "filename": "图像生成原理.md",
+        "path": "图像生成/图像生成原理.md"
+      },
+      {
+        "title": "插图和绘画",
+        "filename": "插图和绘画.md",
+        "path": "图像生成/插图和绘画.md"
+      },
+      {
+        "title": "图像风格控制",
+        "filename": "图像风格控制.md",
+        "path": "图像生成/图像风格控制.md"
+      },
+      {
+        "title": "内容控制",
+        "filename": "内容控制.md",
+        "path": "图像生成/内容控制.md"
+      },
+      {
+        "title": "设计",
+        "filename": "设计.md",
+        "path": "图像生成/设计.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "其他多媒体",
+    "part": "人工智能助手",
+    "sections": [
+      {
+        "title": "音乐",
+        "filename": "音乐.md",
+        "path": "其他多媒体/音乐.md"
+      },
+      {
+        "title": "视频",
+        "filename": "视频.md",
+        "path": "其他多媒体/视频.md"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "文字处理",
+    "part": "办公与多媒体",
+    "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "数据处理",
+    "part": "办公与多媒体",
+    "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "演示文稿与演讲",
+    "part": "办公与多媒体",
+    "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "AI辅助办公",
+    "part": "办公与多媒体",
+    "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "什么是编程",
+    "part": "AI时代的编程",
+    "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "程序运行的基本逻辑",
+    "part": "AI时代的编程",
+    "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "读懂程序",
+    "part": "AI时代的编程",
+    "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "Vibe Coding",
+    "part": "AI时代的编程",
+    "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "开发一切",
+    "part": "AI时代的编程",
+    "sections": []
+  }
+]

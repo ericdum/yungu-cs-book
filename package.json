@@ -1,0 +1,17 @@
+{
+  "name": "openbook",
+  "version": "1.0.0",
+  "description": "云谷高中计算机讲义 - 静态网站",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "convert": "python3 ../tools/tex_to_markdown.py ../elegantbook-cn.tex ./",
+    "convert:watch": "npm run convert && npm run dev"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
+
