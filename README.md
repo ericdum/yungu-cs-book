@@ -1,136 +1,92 @@
-# OpenBook 静态网站
+## 课程背景
 
-这是将 LaTeX 讲义转换为 Markdown 格式并展示为 Vue 静态网站的目录。
+本书编写的初衷，是为了帮助当代学生解决“生活中熟悉手机等移动设备，却对计算机原理知之甚少”的现象。课程内容紧贴AI时代的发展需求，面向 **杭州云谷学校《信息与智能计算》** 课程，旨在引导学生系统性地认识计算机科学的基础原理、核心思想以及实际应用，助力他们在智能时代更好地理解和应用数字世界的技术。
 
-## 文件结构
+## 适合人群
 
-- `index.html` - 主页面
-- `app.js` - Vue 应用逻辑
-- `styles.css` - 样式文件
-- `data/` - 数据目录（所有内容文件）
-  - `navigation.json` - 导航结构（自动生成）
-  - `[章节名]/` - 各章节目录，包含转换后的 Markdown 文件
-  - `images/` - 图片资源目录
+本书适合以下人群阅读：
 
-## 使用方法
+- **初中生**：希望提前了解计算机基础知识，为高中学习做准备
+- **高中生**：正在学习计算机相关课程，需要系统性的教材资源
+- **任何对计算机不熟悉的人**：无论你的年龄、职业或背景如何，只要你对计算机感兴趣，想要了解数字世界的基本运行规律，这本书都会为你带来新的知识和启发
 
-### 1. 转换 LaTeX 文件
+不论你是哪一类人，这本书都会给你带来新的知识，帮助你更好地理解和应用计算机技术。
 
-当更新了 `chapters/` 目录中的 `.tex` 文件后，运行转换脚本：
 
-#### 方法一：使用 npm 命令（推荐）
+## 阅读须知
 
-```bash
-npm run convert
-```
+本书通过 LaTeX 编写，转换成现在的 Markdown 文件难免有所疏漏。如果在阅读过程中发现问题（如格式错误、内容缺失、链接失效等），请通过以下方式反馈：
 
-#### 方法二：直接运行 Python 脚本
+- **提交 Issue**：欢迎在 [本书 GitHub Issues 页](https://github.com/ericdum/yungu-cs-book/issues) 提交问题和建议
+- **联系作者**：[代立晨](https://ericdum.github.io/contact)（杭州云谷学校）
+- **参考贡献指南**：请查看下方的"如何贡献"部分
 
-```bash
-python3 tools/tex_to_markdown.py elegantbook-cn.tex openbook/
-```
+我们会及时修复这些问题，感谢您的理解与支持！
 
-#### 方法三：转换后自动启动开发服务器
+## 作者信息
 
-```bash
-npm run convert:watch
-```
+**作者**：代立晨（Lichen Dai）
 
-这个脚本会：
-- 读取主 LaTeX 文件 (`elegantbook-cn.tex`)
-- 解析章节结构
-- 将所有 `.tex` 文件转换为 Markdown 格式
-- 按 section 拆分为独立的 `.md` 文件
-- 将所有内容文件（包括 Markdown、图片、导航文件）放到 `data/` 目录
-- 生成 `data/navigation.json` 导航文件
+**个人主页**：[https://ericdum.github.io/](https://ericdum.github.io/)
 
-### 2. 查看网站
+代立晨老师拥有计算机硕士学位、副高级职称，在互联网、物联网、大数据和人工智能领域有多年创新实践经验。曾在阿里巴巴工作超过九年，担任过物联网实验室负责人、智慧航空技术总监等职务，并获得多项集团级技术、产品奖项。自2023年起在杭州云谷学校任职，开设了"信息与智能计算"、"计算机科学原理"、"云计算基础"、"机器学习"、"高级应用编程"等课程，积累了丰富的教学经验。
 
-**重要：由于浏览器的 CORS 安全策略，不能直接双击打开 `index.html` 文件。必须使用开发服务器。**
+## 开源与使用许可
 
-#### 方法一：使用提供的启动脚本（推荐）
+### 许可证
 
-**macOS/Linux:**
-```bash
-cd openbook
-./start.sh
-```
+本项目采用 **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**（CC BY-NC-ND 4.0）许可证。
 
-**Windows:**
-```cmd
-cd openbook
-start.bat
-```
+### 允许的使用
 
-脚本会自动：
-1. 检查并安装依赖（首次运行）
-2. 启动 Vite 开发服务器
-3. 自动在浏览器中打开网站
+✅ **允许**：
+- 非商业性的教学使用
+- 非商业性的学习使用
+- 个人学习和研究
+- 在课堂上使用和分发（非商业用途）
 
-#### 方法二：手动启动
+### 禁止的使用
 
-**使用 npm:**
-```bash
-cd openbook
-npm install  # 首次运行需要
-npm run dev
-```
+❌ **禁止**：
+- 商业性使用
+- 修改和演绎作品
+- 将作品用于任何商业目的
 
-**使用 yarn:**
-```bash
-cd openbook
-yarn install  # 首次运行需要
-yarn dev
-```
+### 教育使用许可说明
 
-服务器会在 `http://localhost:8000` 启动，并自动打开浏览器。
+本讲义欢迎全国中学教师在非商业教学场景中使用，包括：
+- 课堂教学
+- 校内学习资源分发
+- 打印给学生使用
+- 作为教学辅助材料
 
-**注意：** 
-- 如果直接打开 `index.html` 文件，会遇到 CORS 错误，无法加载 `navigation.json` 和其他 Markdown 文件。
-- 需要先安装 Node.js (https://nodejs.org/)
+使用时请保留作者署名，不得用于商业用途，不得修改后再发布。
 
-## 转换脚本功能
+### 关于出版
 
-转换脚本 (`tools/tex_to_markdown.py`) 支持以下 LaTeX 格式：
+作者保留本作品的全部商业出版与商业使用权。当前版本为公开教学版本，仅供非商业教学与学习使用。任何商业使用（包括出版、收费课程、平台发行等）均需获得作者书面授权。
 
-- ✅ 章节标题 (`\section`, `\subsection` 等)
-- ✅ 文本格式 (`\textbf`, `\textit`, `\texttt` 等)
-- ✅ 列表 (`enumerate`, `itemize`)
-- ✅ 表格 (`tabular` 环境)
-- ✅ 数学公式 (`$...$`, `$$...$$`, `equation`, `align` 等)
-- ✅ 提示框 (`tcolorbox` 环境)
-- ✅ 图片 (`\includegraphics`)
-- ✅ 代码块 (`minted` 环境)
-- ✅ 引用 (`\cite`)
-- ✅ 转义字符 (`\%`, `\_`, `\&` 等)
+### 完整许可证信息
 
-## 注意事项
+详细许可证条款请访问：[https://creativecommons.org/licenses/by-nc-nd/4.0/](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-1. **每次更新 tex 文件后都要重新运行转换脚本**
-   - 使用 `npm run convert` 或 `python3 tools/tex_to_markdown.py elegantbook-cn.tex openbook/`
-2. **图片路径**：确保图片文件在正确的位置（通常是 `images/` 目录）
-3. **中文路径**：所有文件路径都支持中文，浏览器会自动处理编码
+## 如何贡献
 
-## 技术栈
+由于本讲义原版采用Latex编写，编辑和合并有一定的技术门槛，当前暂未开放直接提交内容的通道。如有改进建议、勘误或想法，欢迎大家先在 GitHub Issues 区留言：[https://github.com/ericdum/yungu-cs-book/issues](https://github.com/ericdum/yungu-cs-book/issues)。我们会定期查看和整理社区反馈。
 
-- Vue 3 (CDN)
-- Vite - 开发服务器和构建工具
-- Marked.js - Markdown 渲染
-- KaTeX - 数学公式渲染
+**贡献内容的署名与版权归属说明**：
 
-## 开发服务器
+- 目前本项目的出版权和全部版权均归作者所有。
+- 对于通过 Issue 提交的有效建议或内容补充，我们会在讲义相应章节中署名致谢（例如标注贡献者的 GitHub 昵称）。
+- 贡献者不会因贡献内容而获得图书版权、版本署名权或版税分成。
+- 未来如开放直接内容提交，将在本 Readme 公告更完善的贡献协议和流程。
 
-本项目使用 Vite 作为开发服务器，提供：
-- 快速的热模块替换 (HMR)
-- 自动打开浏览器
-- 优化的开发体验
+感谢大家支持与关注！
 
-## 构建生产版本
+如有问题或建议，请通过以下方式联系：
+- 联系作者：[代立晨](https://ericdum.github.io/contact)（杭州云谷学校）
 
-如果需要构建生产版本：
+---
 
-```bash
-npm run build
-```
+**重要提示**：请遵守许可证条款，仅将本作品用于非商业的教学和学习目的。商业使用或出版需要获得作者授权。
 
-构建后的文件会在 `dist/` 目录中。
