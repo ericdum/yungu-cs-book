@@ -2,7 +2,7 @@
   {
     "type": "page",
     "title": "关于这本书",
-    "path": "关于这本书.md"
+    "path": "about-this-book"
   },
   {
     "type": "chapter",
@@ -11,23 +11,38 @@
     "sections": [
       {
         "title": "这本书适合哪些人",
-        "filename": "这本书适合哪些人.md",
-        "path": "前言/这本书适合哪些人.md"
+        "filename": "target-audience.md",
+        "path": "target-audience",
+        "slug": "target-audience",
+        "chapter": "前言"
       },
       {
         "title": "这本书的作者",
-        "filename": "这本书的作者.md",
-        "path": "前言/这本书的作者.md"
+        "filename": "about-author.md",
+        "path": "about-author",
+        "slug": "about-author",
+        "chapter": "前言"
       },
       {
         "title": "这本书能帮你做什么",
-        "filename": "这本书能帮你做什么.md",
-        "path": "前言/这本书能帮你做什么.md"
+        "filename": "what-this-book-offers.md",
+        "path": "what-this-book-offers",
+        "slug": "what-this-book-offers",
+        "chapter": "前言"
       },
       {
         "title": "如何阅读这本书",
-        "filename": "如何阅读这本书.md",
-        "path": "前言/如何阅读这本书.md"
+        "filename": "how-to-read.md",
+        "path": "how-to-read",
+        "slug": "how-to-read",
+        "chapter": "前言"
+      },
+      {
+        "title": "关于许可证和模板",
+        "filename": "license-and-template.md",
+        "path": "license-and-template",
+        "slug": "license-and-template",
+        "chapter": "前言"
       }
     ]
   },
@@ -38,28 +53,38 @@
     "sections": [
       {
         "title": "为什么要使用个人电脑",
-        "filename": "为什么要使用个人电脑.md",
-        "path": "从移动设备到个人电脑/为什么要使用个人电脑.md"
+        "filename": "why-use-pc.md",
+        "path": "why-use-pc",
+        "slug": "why-use-pc",
+        "chapter": "从移动设备到个人电脑"
       },
       {
         "title": "操作系统选择",
-        "filename": "操作系统选择.md",
-        "path": "从移动设备到个人电脑/操作系统选择.md"
+        "filename": "os-selection.md",
+        "path": "os-selection",
+        "slug": "os-selection",
+        "chapter": "从移动设备到个人电脑"
       },
       {
         "title": "管理好文件",
-        "filename": "管理好文件.md",
-        "path": "从移动设备到个人电脑/管理好文件.md"
+        "filename": "file-management.md",
+        "path": "file-management",
+        "slug": "file-management",
+        "chapter": "从移动设备到个人电脑"
       },
       {
         "title": "安装应用程序",
-        "filename": "安装应用程序.md",
-        "path": "从移动设备到个人电脑/安装应用程序.md"
+        "filename": "install-apps.md",
+        "path": "install-apps",
+        "slug": "install-apps",
+        "chapter": "从移动设备到个人电脑"
       },
       {
         "title": "云盘",
-        "filename": "云盘.md",
-        "path": "从移动设备到个人电脑/云盘.md"
+        "filename": "cloud-storage.md",
+        "path": "cloud-storage",
+        "slug": "cloud-storage",
+        "chapter": "从移动设备到个人电脑"
       }
     ]
   },
@@ -70,38 +95,52 @@
     "sections": [
       {
         "title": "走进电脑硬件的世界",
-        "filename": "走进电脑硬件的世界.md",
-        "path": "电脑配置的选择/走进电脑硬件的世界.md"
+        "filename": "hardware-introduction.md",
+        "path": "hardware-introduction",
+        "slug": "hardware-introduction",
+        "chapter": "电脑配置的选择"
       },
       {
         "title": "处理器CPU：电脑的大脑中枢",
-        "filename": "处理器CPU：电脑的大脑中枢.md",
-        "path": "电脑配置的选择/处理器CPU：电脑的大脑中枢.md"
+        "filename": "cpu-processor.md",
+        "path": "cpu-processor",
+        "slug": "cpu-processor",
+        "chapter": "电脑配置的选择"
       },
       {
         "title": "内存RAM：系统的高效助手",
-        "filename": "内存RAM：系统的高效助手.md",
-        "path": "电脑配置的选择/内存RAM：系统的高效助手.md"
+        "filename": "ram-memory.md",
+        "path": "ram-memory",
+        "slug": "ram-memory",
+        "chapter": "电脑配置的选择"
       },
       {
         "title": "存储设备：从机械时代到固态未来",
-        "filename": "存储设备：从机械时代到固态未来.md",
-        "path": "电脑配置的选择/存储设备：从机械时代到固态未来.md"
+        "filename": "storage-devices.md",
+        "path": "storage-devices",
+        "slug": "storage-devices",
+        "chapter": "电脑配置的选择"
       },
       {
         "title": "显卡GPU：视觉世界的魔法师",
-        "filename": "显卡GPU：视觉世界的魔法师.md",
-        "path": "电脑配置的选择/显卡GPU：视觉世界的魔法师.md"
+        "filename": "gpu-graphics.md",
+        "path": "gpu-graphics",
+        "slug": "gpu-graphics",
+        "chapter": "电脑配置的选择"
       },
       {
         "title": "现代融合硬件：一体化设计的未来",
-        "filename": "现代融合硬件：一体化设计的未来.md",
-        "path": "电脑配置的选择/现代融合硬件：一体化设计的未来.md"
+        "filename": "modern-integrated-hardware.md",
+        "path": "modern-integrated-hardware",
+        "slug": "modern-integrated-hardware",
+        "chapter": "电脑配置的选择"
       },
       {
         "title": "硬件配置选择指南：为你的需求定制完美方案",
-        "filename": "硬件配置选择指南：为你的需求定制完美方案.md",
-        "path": "电脑配置的选择/硬件配置选择指南：为你的需求定制完美方案.md"
+        "filename": "hardware-configuration-guide.md",
+        "path": "hardware-configuration-guide",
+        "slug": "hardware-configuration-guide",
+        "chapter": "电脑配置的选择"
       }
     ]
   },
@@ -112,23 +151,31 @@
     "sections": [
       {
         "title": "键盘",
-        "filename": "键盘.md",
-        "path": "必备技巧/键盘.md"
+        "filename": "keyboard.md",
+        "path": "keyboard",
+        "slug": "keyboard",
+        "chapter": "必备技巧"
       },
       {
         "title": "常用快捷键",
-        "filename": "常用快捷键.md",
-        "path": "必备技巧/常用快捷键.md"
+        "filename": "shortcuts.md",
+        "path": "shortcuts",
+        "slug": "shortcuts",
+        "chapter": "必备技巧"
       },
       {
         "title": "鼠标和触摸板",
-        "filename": "鼠标和触摸板.md",
-        "path": "必备技巧/鼠标和触摸板.md"
+        "filename": "mouse-and-trackpad.md",
+        "path": "mouse-and-trackpad",
+        "slug": "mouse-and-trackpad",
+        "chapter": "必备技巧"
       },
       {
         "title": "关机、休眠和睡眠",
-        "filename": "关机、休眠和睡眠.md",
-        "path": "必备技巧/关机、休眠和睡眠.md"
+        "filename": "shutdown-sleep-hibernate.md",
+        "path": "shutdown-sleep-hibernate",
+        "slug": "shutdown-sleep-hibernate",
+        "chapter": "必备技巧"
       }
     ]
   },
@@ -139,23 +186,31 @@
     "sections": [
       {
         "title": "系统语言和区域设置",
-        "filename": "系统语言和区域设置.md",
-        "path": "必备系统设置/系统语言和区域设置.md"
+        "filename": "system-language-region.md",
+        "path": "system-language-region",
+        "slug": "system-language-region",
+        "chapter": "必备系统设置"
       },
       {
         "title": "显示设置和分辨率调整",
-        "filename": "显示设置和分辨率调整.md",
-        "path": "必备系统设置/显示设置和分辨率调整.md"
+        "filename": "display-settings.md",
+        "path": "display-settings",
+        "slug": "display-settings",
+        "chapter": "必备系统设置"
       },
       {
         "title": "用户账户和权限管理",
-        "filename": "用户账户和权限管理.md",
-        "path": "必备系统设置/用户账户和权限管理.md"
+        "filename": "user-accounts-permissions.md",
+        "path": "user-accounts-permissions",
+        "slug": "user-accounts-permissions",
+        "chapter": "必备系统设置"
       },
       {
         "title": "系统安全基础",
-        "filename": "系统安全基础.md",
-        "path": "必备系统设置/系统安全基础.md"
+        "filename": "system-security-basics.md",
+        "path": "system-security-basics",
+        "slug": "system-security-basics",
+        "chapter": "必备系统设置"
       }
     ]
   },
@@ -166,28 +221,38 @@
     "sections": [
       {
         "title": "互联网",
-        "filename": "互联网.md",
-        "path": "使用电脑上网/互联网.md"
+        "filename": "internet.md",
+        "path": "internet",
+        "slug": "internet",
+        "chapter": "使用电脑上网"
       },
       {
         "title": "局域网",
-        "filename": "局域网.md",
-        "path": "使用电脑上网/局域网.md"
+        "filename": "local-network.md",
+        "path": "local-network",
+        "slug": "local-network",
+        "chapter": "使用电脑上网"
       },
       {
         "title": "VPN 和网络代理",
-        "filename": "VPN_和网络代理.md",
-        "path": "使用电脑上网/VPN_和网络代理.md"
+        "filename": "vpn-proxy.md",
+        "path": "vpn-proxy",
+        "slug": "vpn-proxy",
+        "chapter": "使用电脑上网"
       },
       {
         "title": "安全的网站",
-        "filename": "安全的网站.md",
-        "path": "使用电脑上网/安全的网站.md"
+        "filename": "secure-websites.md",
+        "path": "secure-websites",
+        "slug": "secure-websites",
+        "chapter": "使用电脑上网"
       },
       {
         "title": "安全的密码",
-        "filename": "安全的密码.md",
-        "path": "使用电脑上网/安全的密码.md"
+        "filename": "secure-passwords.md",
+        "path": "secure-passwords",
+        "slug": "secure-passwords",
+        "chapter": "使用电脑上网"
       }
     ]
   },
@@ -198,33 +263,45 @@
     "sections": [
       {
         "title": "引言",
-        "filename": "引言.md",
-        "path": "必备AI工具/引言.md"
+        "filename": "ai-tools-intro.md",
+        "path": "ai-tools-intro",
+        "slug": "ai-tools-intro",
+        "chapter": "必备AI工具"
       },
       {
         "title": "人工智能的前世今生",
-        "filename": "人工智能的前世今生.md",
-        "path": "必备AI工具/人工智能的前世今生.md"
+        "filename": "ai-history.md",
+        "path": "ai-history",
+        "slug": "ai-history",
+        "chapter": "必备AI工具"
       },
       {
         "title": "通过网页使用的AI（未完成，待补充）",
-        "filename": "通过网页使用的AI（未完成，待补充）.md",
-        "path": "必备AI工具/通过网页使用的AI（未完成，待补充）.md"
+        "filename": "web-based-ai.md",
+        "path": "web-based-ai",
+        "slug": "web-based-ai",
+        "chapter": "必备AI工具"
       },
       {
-        "title": "使用操作系统提供的AI（未完成，待补充",
-        "filename": "使用操作系统提供的AI（未完成，待补充.md",
-        "path": "必备AI工具/使用操作系统提供的AI（未完成，待补充.md"
+        "title": "使用操作系统提供的AI（未完成，待补充）",
+        "filename": "os-ai.md",
+        "path": "os-ai",
+        "slug": "os-ai",
+        "chapter": "必备AI工具"
       },
       {
         "title": "使用AI浏览器和其他专用AI工具（未完成，待补充）",
-        "filename": "使用AI浏览器和其他专用AI工具（未完成，待补充）.md",
-        "path": "必备AI工具/使用AI浏览器和其他专用AI工具（未完成，待补充）.md"
+        "filename": "ai-browsers.md",
+        "path": "ai-browsers",
+        "slug": "ai-browsers",
+        "chapter": "必备AI工具"
       },
       {
         "title": "让AI控制一切（未完成，待补充）",
-        "filename": "让AI控制一切（未完成，待补充）.md",
-        "path": "必备AI工具/让AI控制一切（未完成，待补充）.md"
+        "filename": "ai-control-computer.md",
+        "path": "ai-control-computer",
+        "slug": "ai-control-computer",
+        "chapter": "必备AI工具"
       }
     ]
   },
@@ -235,18 +312,24 @@
     "sections": [
       {
         "title": "大模型原理：揭开AI的神秘面纱",
-        "filename": "大模型原理：揭开AI的神秘面纱.md",
-        "path": "大语言模型和提示词/大模型原理：揭开AI的神秘面纱.md"
+        "filename": "llm-principles.md",
+        "path": "llm-principles",
+        "slug": "llm-principles",
+        "chapter": "大语言模型和提示词"
       },
       {
         "title": "提示词的关键技术：从原理到实践",
-        "filename": "提示词的关键技术：从原理到实践.md",
-        "path": "大语言模型和提示词/提示词的关键技术：从原理到实践.md"
+        "filename": "prompt-techniques.md",
+        "path": "prompt-techniques",
+        "slug": "prompt-techniques",
+        "chapter": "大语言模型和提示词"
       },
       {
         "title": "上下文管理：理解AI的记忆边界",
-        "filename": "上下文管理：理解AI的记忆边界.md",
-        "path": "大语言模型和提示词/上下文管理：理解AI的记忆边界.md"
+        "filename": "context-management.md",
+        "path": "context-management",
+        "slug": "context-management",
+        "chapter": "大语言模型和提示词"
       }
     ]
   },
@@ -257,18 +340,24 @@
     "sections": [
       {
         "title": "提示词技巧",
-        "filename": "提示词技巧.md",
-        "path": "合理使用提示词/提示词技巧.md"
+        "filename": "prompt-techniques.md",
+        "path": "prompt-techniques",
+        "slug": "prompt-techniques",
+        "chapter": "合理使用提示词"
       },
       {
         "title": "MCP",
-        "filename": "MCP.md",
-        "path": "合理使用提示词/MCP.md"
+        "filename": "mcp.md",
+        "path": "mcp",
+        "slug": "mcp",
+        "chapter": "合理使用提示词"
       },
       {
         "title": "Agent",
-        "filename": "Agent.md",
-        "path": "合理使用提示词/Agent.md"
+        "filename": "agent.md",
+        "path": "agent",
+        "slug": "agent",
+        "chapter": "合理使用提示词"
       }
     ]
   },
@@ -279,28 +368,38 @@
     "sections": [
       {
         "title": "图像生成原理",
-        "filename": "图像生成原理.md",
-        "path": "图像生成/图像生成原理.md"
+        "filename": "image-generation-principles.md",
+        "path": "image-generation-principles",
+        "slug": "image-generation-principles",
+        "chapter": "图像生成"
       },
       {
         "title": "插图和绘画",
-        "filename": "插图和绘画.md",
-        "path": "图像生成/插图和绘画.md"
+        "filename": "illustration-and-painting.md",
+        "path": "illustration-and-painting",
+        "slug": "illustration-and-painting",
+        "chapter": "图像生成"
       },
       {
         "title": "图像风格控制",
-        "filename": "图像风格控制.md",
-        "path": "图像生成/图像风格控制.md"
+        "filename": "image-style-control.md",
+        "path": "image-style-control",
+        "slug": "image-style-control",
+        "chapter": "图像生成"
       },
       {
         "title": "内容控制",
-        "filename": "内容控制.md",
-        "path": "图像生成/内容控制.md"
+        "filename": "content-control.md",
+        "path": "content-control",
+        "slug": "content-control",
+        "chapter": "图像生成"
       },
       {
         "title": "设计",
-        "filename": "设计.md",
-        "path": "图像生成/设计.md"
+        "filename": "design.md",
+        "path": "design",
+        "slug": "design",
+        "chapter": "图像生成"
       }
     ]
   },
@@ -311,13 +410,17 @@
     "sections": [
       {
         "title": "音乐",
-        "filename": "音乐.md",
-        "path": "其他多媒体/音乐.md"
+        "filename": "music.md",
+        "path": "music",
+        "slug": "music",
+        "chapter": "其他多媒体"
       },
       {
         "title": "视频",
-        "filename": "视频.md",
-        "path": "其他多媒体/视频.md"
+        "filename": "video.md",
+        "path": "video",
+        "slug": "video",
+        "chapter": "其他多媒体"
       }
     ]
   },

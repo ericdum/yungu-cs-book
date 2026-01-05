@@ -52,7 +52,7 @@
                         <!-- 如果是页面类型（如"关于这本书"） -->
                         <div v-if="item.type === 'page'" 
                              class="nav-section nav-page"
-                             :class="{ 'active': currentPath === item.path }"
+                             :class="{ 'active': currentPath === item.path || (item.path === 'about-this-book' && isRootPath()) }"
                              @click="loadSection(item.path, item.title)">
                             {{ item.title }}
                         </div>
