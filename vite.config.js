@@ -7,7 +7,9 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets'
+    assetsDir: 'assets',
+    // 如果部署在子目录，取消下面的注释并设置正确的 base 路径
+    // base: '/your-subdirectory/'
   }
 });
 
