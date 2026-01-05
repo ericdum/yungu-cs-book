@@ -1,7 +1,7 @@
 {
   "name": "openbook",
   "version": "1.0.0",
-  "description": "云谷高中计算机讲义 - 静态网站",
+  "description": "AI时代·计算机通识 - 静态网站",
   "type": "module",
   "scripts": {
     "dev": "vite",

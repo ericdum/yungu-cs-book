@@ -100,14 +100,66 @@ createApp({
             }
         },
         
+        // 安全解码 URL，如果已经是解码后的则直接返回
+        safeDecodeURIComponent(str) {
+            try {
+                // 如果包含编码字符（%），尝试解码
+                if (str && str.includes('%')) {
+                    return decodeURIComponent(str);
+                }
+                return str;
+            } catch (e) {
+                // 如果解码失败，返回原字符串
+                return str;
+            }
+        },
+        
         async loadSection(path, title) {
-            this.currentTitle = title;
-            this.currentPath = path;
+            // 检查当前 URL 是否已经是目标路径（避免重复加载）
+            const currentUrlPath = this.getCurrentPath();
+            const isSamePage = currentUrlPath === path;
+            
+            if (!isSamePage) {
+                this.currentTitle = title;
+                this.currentPath = path;
+            }
             
             // 更新 URL（不刷新页面）
-            const newUrl = `#${encodeURIComponent(path)}`;
-            if (window.location.hash !== newUrl) {
+            const newUrl = `/${encodeURIComponent(path)}`;
+            if (currentUrlPath !== path) {
                 window.history.pushState({ path }, title, newUrl);
+                
+                // 只有在 URL 变化时才发送统计数据
+                // 百度统计：跟踪页面浏览（使用解码后的路径，显示为正常的中文字符）
+                try {
+                    if (typeof _hmt !== 'undefined' && _hmt.push) {
+                        const decodedPath = this.safeDecodeURIComponent(path);
+                        _hmt.push(['_trackPageview', decodedPath]);
+                        console.log('百度统计已发送:', decodedPath);
+                    }
+                } catch (e) {
+                    console.error('百度统计发送失败:', e);
+                }
+                
+                // Google Analytics：跟踪页面浏览（使用解码后的路径，显示为正常的中文字符）
+                try {
+                    if (typeof gtag !== 'undefined') {
+                        const decodedPath = this.safeDecodeURIComponent(path);
+                        // 使用 config 更新页面信息并发送页面浏览事件
+                        gtag('config', 'G-2K4319RJTR', {
+                            'page_path': decodedPath,
+                            'page_title': title
+                        });
+                        console.log('Google Analytics 已发送:', decodedPath, title);
+                    }
+                } catch (e) {
+                    console.error('Google Analytics 发送失败:', e);
+                }
+            }
+            
+            // 如果是同一个页面，不重复加载内容
+            if (isSamePage) {
+                return;
             }
             
             // 显示加载状态
@@ -275,12 +327,21 @@ createApp({
             }
         },
         
+        getCurrentPath() {
+            // 从 URL pathname 获取路径
+            const pathname = window.location.pathname;
+            if (pathname && pathname !== '/' && pathname.length > 1) {
+                // 移除开头的斜杠并解码
+                return decodeURIComponent(pathname.substring(1));
+            }
+            return null;
+        },
+        
         handleRouting() {
-            // 从 URL hash 获取路径
-            const hash = window.location.hash;
-            if (hash && hash.length > 1) {
-                const path = decodeURIComponent(hash.substring(1));
-                
+            // 从 URL pathname 获取路径
+            const path = this.getCurrentPath();
+            
+            if (path) {
                 // 在导航中找到对应的 section 或 page
                 for (const item of this.navigation) {
                     // 检查是否是 page 类型

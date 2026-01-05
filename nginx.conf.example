@@ -1,0 +1,30 @@
+# Nginx 配置示例
+# 将此配置添加到你的 Nginx 服务器配置中
+
+server {
+    listen 80;
+    server_name cs-book.yunguhs.com;
+    root /path/to/your/dist;
+    index index.html;
+
+    # 启用 UTF-8 编码
+    charset utf-8;
+
+    # 支持 HTML5 History API 路由
+    # 将所有请求重定向到 index.html，让前端路由处理
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 设置正确的 MIME 类型
+    location ~ \.md$ {
+        add_header Content-Type text/markdown;
+    }
+
+    # 静态资源缓存
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+

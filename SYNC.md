@@ -1,6 +1,6 @@
 # OpenBook 静态网站
 
-这是将 LaTeX 讲义转换为 Markdown 格式并展示为 Vue 静态网站的目录。
+这是将 LaTeX 书转换为 Markdown 格式并展示为 Vue 静态网站的目录。
 
 ## 文件结构
 

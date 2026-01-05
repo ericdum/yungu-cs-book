@@ -1,0 +1,25 @@
+# 支持 HTML5 History API 路由
+# 将所有请求重定向到 index.html，让前端路由处理
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # 如果请求的是实际存在的文件或目录，直接返回
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # 否则重定向到 index.html
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# 设置正确的 MIME 类型
+<IfModule mod_mime.c>
+  AddType text/markdown .md
+  AddType application/javascript .js
+  AddType text/css .css
+</IfModule>
+
+# 启用 UTF-8 编码
+AddDefaultCharset UTF-8
+

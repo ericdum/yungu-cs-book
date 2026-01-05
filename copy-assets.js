@@ -5,6 +5,7 @@ import { join } from 'path';
 const distDir = 'dist';
 const dataDir = 'data';
 const imagesDir = 'images';
+const htaccessFile = '.htaccess';
 
 async function copyAssets() {
   try {
@@ -30,6 +31,21 @@ async function copyAssets() {
       console.log(`✓ ${imagesDir} 目录已复制到 ${distDir}`);
     } else {
       console.warn(`警告: ${imagesDir} 目录不存在`);
+    }
+
+    // 复制 .htaccess 文件（如果存在）
+    if (existsSync(htaccessFile)) {
+      console.log(`正在复制 ${htaccessFile} 文件...`);
+      await cp(htaccessFile, join(distDir, htaccessFile));
+      console.log(`✓ ${htaccessFile} 文件已复制到 ${distDir}`);
+    }
+
+    // 复制 favicon.ico 文件（如果存在）
+    const faviconFile = 'favicon.ico';
+    if (existsSync(faviconFile)) {
+      console.log(`正在复制 ${faviconFile} 文件...`);
+      await cp(faviconFile, join(distDir, faviconFile));
+      console.log(`✓ ${faviconFile} 文件已复制到 ${distDir}`);
     }
 
     console.log('✓ 所有资源文件已复制完成');
