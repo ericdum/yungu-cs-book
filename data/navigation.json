@@ -477,5 +477,26 @@
     "title": "开发一切",
     "part": "AI时代的编程",
     "sections": []
+  },
+  {
+    "type": "chapter",
+    "title": "附录",
+    "part": "AI时代的编程",
+    "sections": [
+      {
+        "title": "AI使用声明",
+        "filename": "ai-usage-declaration.md",
+        "path": "ai-usage-declaration",
+        "slug": "ai-usage-declaration",
+        "chapter": "附录"
+      },
+      {
+        "title": "原创性声明",
+        "filename": "originality-declaration.md",
+        "path": "originality-declaration",
+        "slug": "originality-declaration",
+        "chapter": "附录"
+      }
+    ]
   }
 ]
