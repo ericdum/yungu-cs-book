@@ -322,8 +322,10 @@ createApp({
                     contentEl.scrollTop = 0;
                 }
                 
-                // 更新下一个 section
-                this.updateNextSection();
+                // 更新下一个 section（使用 $nextTick 确保 DOM 更新完成）
+                this.$nextTick(() => {
+                    this.updateNextSection();
+                });
             } catch (error) {
                 this.renderedContent = 
                     `<p style="color: red;">加载内容失败: ${error.message}</p>
@@ -740,7 +742,11 @@ createApp({
                 // 检查是否是 chapter 类型中的 section
                 if (item.type === 'chapter' && item.sections) {
                     for (let j = 0; j < item.sections.length; j++) {
-                        if (item.sections[j].path === this.currentPath) {
+                        // 支持两种路径格式：直接 path 或包含章节名称的路径
+                        const sectionPath = item.sections[j].path;
+                        if (sectionPath === this.currentPath || 
+                            `${item.sections[j].chapter}/${sectionPath}` === this.currentPath ||
+                            sectionPath === this.currentPath.split('/').pop()) {
                             currentChapterIndex = i;
                             currentSectionIndex = j;
                             break;
@@ -750,8 +756,19 @@ createApp({
                 }
             }
             
-            // 如果没有找到当前 section，清空 nextSection
+            // 如果没有找到当前 section，尝试找到第一个可用的 section
             if (currentChapterIndex === -1) {
+                // 尝试找到第一个 chapter 的第一个 section
+                for (let i = 0; i < this.navigation.length; i++) {
+                    const item = this.navigation[i];
+                    if (item.type === 'chapter' && item.sections && item.sections.length > 0) {
+                        this.nextSection = {
+                            path: item.sections[0].path,
+                            title: item.sections[0].title
+                        };
+                        return;
+                    }
+                }
                 this.nextSection = null;
                 return;
             }

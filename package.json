@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build && node copy-assets.js",
     "preview": "vite preview",
-    "convert": "python3 ../tools/tex_to_markdown.py ../elegantbook-cn.tex ./",
+    "convert": "cd .. && python3 tools/tex_to_markdown.py elegantbook-cn.tex openbook/",
     "convert:watch": "npm run convert && npm run dev"
   },
   "devDependencies": {
