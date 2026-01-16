@@ -10,6 +10,13 @@
     "part": null,
     "sections": [
       {
+        "title": "内容设计",
+        "filename": "content-design.md",
+        "path": "content-design",
+        "slug": "content-design",
+        "chapter": "前言"
+      },
+      {
         "title": "这本书适合哪些人",
         "filename": "target-audience.md",
         "path": "target-audience",
