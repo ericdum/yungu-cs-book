@@ -265,6 +265,34 @@
   },
   {
     "type": "chapter",
+    "title": "人工智能的前世今生",
+    "part": "人工智能助手",
+    "sections": [
+      {
+        "title": "当计算机学会\"思考\"",
+        "filename": "ai-history.md",
+        "path": "ai-history",
+        "slug": "ai-history",
+        "chapter": "人工智能的前世今生"
+      },
+      {
+        "title": "现代人工智能",
+        "filename": "现代人工智能.md",
+        "path": "现代人工智能",
+        "slug": null,
+        "chapter": "人工智能的前世今生"
+      },
+      {
+        "title": "站在历史的转折点",
+        "filename": "站在历史的转折点.md",
+        "path": "站在历史的转折点",
+        "slug": null,
+        "chapter": "人工智能的前世今生"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
     "title": "必备AI工具",
     "part": "人工智能助手",
     "sections": [
@@ -276,35 +304,28 @@
         "chapter": "必备AI工具"
       },
       {
-        "title": "人工智能的前世今生",
-        "filename": "ai-history.md",
-        "path": "ai-history",
-        "slug": "ai-history",
-        "chapter": "必备AI工具"
-      },
-      {
-        "title": "通过网页使用的AI（未完成，待补充）",
+        "title": "通过网页使用的AI",
         "filename": "web-based-ai.md",
         "path": "web-based-ai",
         "slug": "web-based-ai",
         "chapter": "必备AI工具"
       },
       {
-        "title": "使用操作系统提供的AI（未完成，待补充）",
+        "title": "使用操作系统提供的AI",
         "filename": "os-ai.md",
         "path": "os-ai",
         "slug": "os-ai",
         "chapter": "必备AI工具"
       },
       {
-        "title": "使用AI浏览器和其他专用AI工具（未完成，待补充）",
-        "filename": "ai-browsers.md",
-        "path": "ai-browsers",
-        "slug": "ai-browsers",
+        "title": "工作流和Agent",
+        "filename": "工作流和Agent.md",
+        "path": "工作流和Agent",
+        "slug": null,
         "chapter": "必备AI工具"
       },
       {
-        "title": "让AI控制一切（未完成，待补充）",
+        "title": "让AI控制一切",
         "filename": "ai-control-computer.md",
         "path": "ai-control-computer",
         "slug": "ai-control-computer",
@@ -342,35 +363,7 @@
   },
   {
     "type": "chapter",
-    "title": "合理使用提示词",
-    "part": "人工智能助手",
-    "sections": [
-      {
-        "title": "提示词技巧",
-        "filename": "prompt-techniques.md",
-        "path": "prompt-techniques",
-        "slug": "prompt-techniques",
-        "chapter": "合理使用提示词"
-      },
-      {
-        "title": "MCP",
-        "filename": "mcp.md",
-        "path": "mcp",
-        "slug": "mcp",
-        "chapter": "合理使用提示词"
-      },
-      {
-        "title": "Agent",
-        "filename": "agent.md",
-        "path": "agent",
-        "slug": "agent",
-        "chapter": "合理使用提示词"
-      }
-    ]
-  },
-  {
-    "type": "chapter",
-    "title": "图像生成",
+    "title": "多模态模型",
     "part": "人工智能助手",
     "sections": [
       {
@@ -378,56 +371,56 @@
         "filename": "image-generation-principles.md",
         "path": "image-generation-principles",
         "slug": "image-generation-principles",
-        "chapter": "图像生成"
+        "chapter": "多模态模型"
       },
       {
         "title": "插图和绘画",
         "filename": "illustration-and-painting.md",
         "path": "illustration-and-painting",
         "slug": "illustration-and-painting",
-        "chapter": "图像生成"
+        "chapter": "多模态模型"
       },
       {
         "title": "图像风格控制",
         "filename": "image-style-control.md",
         "path": "image-style-control",
         "slug": "image-style-control",
-        "chapter": "图像生成"
+        "chapter": "多模态模型"
       },
       {
         "title": "内容控制",
         "filename": "content-control.md",
         "path": "content-control",
         "slug": "content-control",
-        "chapter": "图像生成"
+        "chapter": "多模态模型"
       },
       {
         "title": "设计",
         "filename": "design.md",
         "path": "design",
         "slug": "design",
-        "chapter": "图像生成"
-      }
-    ]
-  },
-  {
-    "type": "chapter",
-    "title": "其他多媒体",
-    "part": "人工智能助手",
-    "sections": [
+        "chapter": "多模态模型"
+      },
       {
         "title": "音乐",
         "filename": "music.md",
         "path": "music",
         "slug": "music",
-        "chapter": "其他多媒体"
-      },
+        "chapter": "多模态模型"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "引言",
+    "part": "办公与多媒体",
+    "sections": [
       {
-        "title": "视频",
-        "filename": "video.md",
-        "path": "video",
-        "slug": "video",
-        "chapter": "其他多媒体"
+        "title": "多媒体教学思路的改变",
+        "filename": "mm-introduction.md",
+        "path": "mm-introduction",
+        "slug": "mm-introduction",
+        "chapter": "引言"
       }
     ]
   },
@@ -435,25 +428,106 @@
     "type": "chapter",
     "title": "文字处理",
     "part": "办公与多媒体",
-    "sections": []
+    "sections": [
+      {
+        "title": "电子文档的结构与组织",
+        "filename": "doc-principal.md",
+        "path": "doc-principal",
+        "slug": "doc-principal",
+        "chapter": "文字处理"
+      },
+      {
+        "title": "文档格式规范",
+        "filename": "doc-standards.md",
+        "path": "doc-standards",
+        "slug": "doc-standards",
+        "chapter": "文字处理"
+      }
+    ]
   },
   {
     "type": "chapter",
     "title": "数据处理",
     "part": "办公与多媒体",
-    "sections": []
+    "sections": [
+      {
+        "title": "表格与数据组织",
+        "filename": "data-principal.md",
+        "path": "data-principal",
+        "slug": "data-principal",
+        "chapter": "数据处理"
+      },
+      {
+        "title": "数据处理与分析",
+        "filename": "data-process.md",
+        "path": "data-process",
+        "slug": "data-process",
+        "chapter": "数据处理"
+      },
+      {
+        "title": "数据可视化",
+        "filename": "data-visualization.md",
+        "path": "data-visualization",
+        "slug": "data-visualization",
+        "chapter": "数据处理"
+      },
+      {
+        "title": "数据伦理与责任",
+        "filename": "data-ethics.md",
+        "path": "data-ethics",
+        "slug": "data-ethics",
+        "chapter": "数据处理"
+      }
+    ]
   },
   {
     "type": "chapter",
     "title": "演示文稿与演讲",
     "part": "办公与多媒体",
-    "sections": []
+    "sections": [
+      {
+        "title": "演示文稿与演讲",
+        "filename": "presentation.md",
+        "path": "presentation",
+        "slug": "presentation",
+        "chapter": "演示文稿与演讲"
+      }
+    ]
+  },
+  {
+    "type": "chapter",
+    "title": "多媒体",
+    "part": "办公与多媒体",
+    "sections": [
+      {
+        "title": "认识数字图像",
+        "filename": "image-format.md",
+        "path": "image-format",
+        "slug": "image-format",
+        "chapter": "多媒体"
+      },
+      {
+        "title": "认识数字视频",
+        "filename": "video-format.md",
+        "path": "video-format",
+        "slug": "video-format",
+        "chapter": "多媒体"
+      }
+    ]
   },
   {
     "type": "chapter",
     "title": "AI辅助办公",
     "part": "办公与多媒体",
-    "sections": []
+    "sections": [
+      {
+        "title": "AI工具与现代协作",
+        "filename": "ai-tools.md",
+        "path": "ai-tools",
+        "slug": "ai-tools",
+        "chapter": "AI辅助办公"
+      }
+    ]
   },
   {
     "type": "chapter",
