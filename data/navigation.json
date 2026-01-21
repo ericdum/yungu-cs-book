@@ -17,24 +17,10 @@
         "chapter": "前言"
       },
       {
-        "title": "这本书适合哪些人",
-        "filename": "target-audience.md",
-        "path": "target-audience",
-        "slug": "target-audience",
-        "chapter": "前言"
-      },
-      {
         "title": "关于作者",
         "filename": "about-author.md",
         "path": "about-author",
         "slug": "about-author",
-        "chapter": "前言"
-      },
-      {
-        "title": "这本书能帮你做什么",
-        "filename": "what-this-book-offers.md",
-        "path": "what-this-book-offers",
-        "slug": "what-this-book-offers",
         "chapter": "前言"
       },
       {
