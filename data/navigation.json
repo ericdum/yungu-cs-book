@@ -517,33 +517,150 @@
   },
   {
     "type": "chapter",
-    "title": "什么是编程",
-    "part": "AI时代的编程",
-    "sections": []
+    "title": "什么是编程（未定稿、未校对）",
+    "part": "AI时代的编程（未定稿、未校对）",
+    "sections": [
+      {
+        "title": "为什么每个人都应该了解编程",
+        "filename": "why-learn-programming.md",
+        "path": "why-learn-programming",
+        "slug": "why-learn-programming",
+        "chapter": "什么是编程（未定稿、未校对）"
+      },
+      {
+        "title": "从低级语言到自然语言",
+        "filename": "from-low-level-to-natural-language.md",
+        "path": "from-low-level-to-natural-language",
+        "slug": "from-low-level-to-natural-language",
+        "chapter": "什么是编程（未定稿、未校对）"
+      }
+    ]
   },
   {
     "type": "chapter",
-    "title": "程序运行的基本逻辑",
-    "part": "AI时代的编程",
-    "sections": []
+    "title": "程序运行的基本逻辑（未定稿、未校对）",
+    "part": "AI时代的编程（未定稿、未校对）",
+    "sections": [
+      {
+        "title": "程序运行的环境",
+        "filename": "program-runtime-environment.md",
+        "path": "program-runtime-environment",
+        "slug": "program-runtime-environment",
+        "chapter": "程序运行的基本逻辑（未定稿、未校对）"
+      },
+      {
+        "title": "程序的四种基本逻辑",
+        "filename": "basic-logic-structures.md",
+        "path": "basic-logic-structures",
+        "slug": "basic-logic-structures",
+        "chapter": "程序运行的基本逻辑（未定稿、未校对）"
+      }
+    ]
   },
   {
     "type": "chapter",
-    "title": "读懂程序",
-    "part": "AI时代的编程",
-    "sections": []
+    "title": "读懂程序（未定稿、未校对）",
+    "part": "AI时代的编程（未定稿、未校对）",
+    "sections": [
+      {
+        "title": "读懂程序的执行流程",
+        "filename": "program-execution-flow.md",
+        "path": "program-execution-flow",
+        "slug": "program-execution-flow",
+        "chapter": "读懂程序（未定稿、未校对）"
+      },
+      {
+        "title": "从细节到全局：抽象的力量",
+        "filename": "abstraction-and-understanding.md",
+        "path": "abstraction-and-understanding",
+        "slug": "abstraction-and-understanding",
+        "chapter": "读懂程序（未定稿、未校对）"
+      },
+      {
+        "title": "Debugger：程序的\"慢动作回放\"",
+        "filename": "debugger.md",
+        "path": "debugger",
+        "slug": "debugger",
+        "chapter": "读懂程序（未定稿、未校对）"
+      }
+    ]
   },
   {
     "type": "chapter",
-    "title": "Vibe Coding",
-    "part": "AI时代的编程",
-    "sections": []
+    "title": "Vibe Coding（未定稿、未校对）",
+    "part": "AI时代的编程（未定稿、未校对）",
+    "sections": [
+      {
+        "title": "Vibe Coding：AI时代的编程方式",
+        "filename": "vibe-coding.md",
+        "path": "vibe-coding",
+        "slug": "vibe-coding",
+        "chapter": "Vibe_Coding（未定稿、未校对）"
+      }
+    ]
   },
   {
     "type": "chapter",
-    "title": "开发一切",
-    "part": "AI时代的编程",
-    "sections": []
+    "title": "开发一切（未定稿、未校对）",
+    "part": "AI时代的编程（未定稿、未校对）",
+    "sections": [
+      {
+        "title": "初体验：用AI做一个网页小游戏",
+        "filename": "first-experience-web-game.md",
+        "path": "first-experience-web-game",
+        "slug": "first-experience-web-game",
+        "chapter": "开发一切（未定稿、未校对）"
+      },
+      {
+        "title": "用IDE开发个人简历",
+        "filename": "personal-resume-with-ide.md",
+        "path": "personal-resume-with-ide",
+        "slug": "personal-resume-with-ide",
+        "chapter": "开发一切（未定稿、未校对）"
+      },
+      {
+        "title": "数据分析：不同语言各显神通",
+        "filename": "data-analysis-project.md",
+        "path": "data-analysis-project",
+        "slug": "data-analysis-project",
+        "chapter": "开发一切（未定稿、未校对）"
+      },
+      {
+        "title": "磁盘管理工具：让程序帮你整理文件",
+        "filename": "disk-management-tool.md",
+        "path": "disk-management-tool",
+        "slug": "disk-management-tool",
+        "chapter": "开发一切（未定稿、未校对）"
+      },
+      {
+        "title": "版本管理：给你的项目加上\"时光机\"",
+        "filename": "version-control-git.md",
+        "path": "version-control-git",
+        "slug": "version-control-git",
+        "chapter": "开发一切（未定稿、未校对）"
+      },
+      {
+        "title": "发布你的作品：让全世界都能访问",
+        "filename": "deploy-your-project.md",
+        "path": "deploy-your-project",
+        "slug": "deploy-your-project",
+        "chapter": "开发一切（未定稿、未校对）"
+      },
+      {
+        "title": "让网页记住数据：从无状态到有状态",
+        "filename": "stateful-web-apps.md",
+        "path": "stateful-web-apps",
+        "slug": "stateful-web-apps",
+        "chapter": "开发一切（未定稿、未校对）"
+      },
+      {
+        "title": "把数据放到线上：让所有人共享信息",
+        "filename": "online-data-storage.md",
+        "path": "online-data-storage",
+        "slug": "online-data-storage",
+        "chapter": "开发一切（未定稿、未校对）"
+      }
+    ]
   },
   {
     "type": "chapter",
